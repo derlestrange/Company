@@ -2,7 +2,13 @@ package Employees;
 
 public class Operator implements Employee{
 
-    public Operator(int id, String value){
+    @Override
+    public void setCompany(Company company) {
+
+    }
+
+    @Override
+    public void setMonthSalary(double monthSalary) {
 
     }
 

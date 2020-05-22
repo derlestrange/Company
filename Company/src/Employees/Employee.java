@@ -1,5 +1,7 @@
 package Employees;
 
 public interface Employee {
-    public int getMonthSalary();
+    void setCompany(Company company);
+    void setMonthSalary(double monthSalary);
+    int getMonthSalary();
 }

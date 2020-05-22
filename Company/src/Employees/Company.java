@@ -1,16 +1,39 @@
 package Employees;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class Company implements Comparable<Company>{
-    private final ArrayList<Employee> employeeArrayList = new ArrayList<>();
+public class Company {
 
-//    public ArrayList<Employee> getEmployeeArrayList() {
-//        employeeArrayList.add(1, new Manager());
-//    }
-    
-    @Override
-    public int compareTo(Company company) {
-        return 0;
+    protected List<Employee> companyList = new ArrayList<>();
+    private long companyIncome;
+    Company company;
+
+    public Company() {
     }
+
+    public void hire(Employee employee) {
+        companyList.add(employee);
+        employee.setCompany(new Company());
+        employee.setMonthSalary();
+    }
+
+    public void getCompanyIncome() {
+        System.out.print("Доход компании: " + companyIncome);
+    }
+
+    public void setCompanyIncome(long companyIncome) {
+        this.companyIncome = companyIncome;
+    }
+
+    public void printCompanyList() {
+        for (Employee employee : companyList) {
+            System.out.println(employee);
+        }
+    }
+
+//    @Override
+//    public String toString() {
+//        return "Компания: " + company;
+//    }
 }
