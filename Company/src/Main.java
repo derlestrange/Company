@@ -1,14 +1,22 @@
 import Employees.Company;
+import Employees.Employee;
 import Employees.Manager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Company testingCompany = new Company();
-        testingCompany.setCompanyIncome(10);
-        testingCompany.hire(new Manager(testingCompany, "Vasya", 2));
-        testingCompany.hire(new Manager(testingCompany, "max", 3));
-        System.out.println("Бабки компании: " + testingCompany.getCompanyIncome());
-        testingCompany.printCompanyList();
+        List<Employee> newCompany = new ArrayList<>();
+        newCompany.add(new Manager(new Company(), "alex", 1));
+
+
+        Company companyOne = new Company();
+        companyOne.setCompanyIncome(10);
+        companyOne.hire(new Manager(companyOne, "Vasya", 2));
+        companyOne.hire(new Manager(companyOne, "max", 3));
+        System.out.println("Бабки компании: " + companyOne.getCompanyIncome());
+        companyOne.printCompanyList();
 
         System.out.println("++++++++++++++++++++++++++++++");
         Company company = new Company();
