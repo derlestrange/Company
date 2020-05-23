@@ -8,12 +8,13 @@ public class TopManager implements Employee{
     }
 
     @Override
-    public void setMonthSalary(double monthSalary) {
+    public void setMonthSalary() {
 
     }
 
     @Override
-    public int getMonthSalary() {
+    public long getMonthSalary() {
+
         return 0;
     }
 }

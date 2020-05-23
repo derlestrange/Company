@@ -4,13 +4,15 @@ public class Manager implements Employee {
 
     String managerName;
     int managerId;
-    double managerSalary;
+    long managerSalary;
     Company managerCompany;
+    Manager manager;
 
     public Manager(Company company, String name, int id) {
         this.managerName = name;
         this.managerId = id;
         this.managerCompany = company;
+
     }
 
     @Override
@@ -27,12 +29,12 @@ public class Manager implements Employee {
     }
 
     @Override
-    public void setMonthSalary(double monthSalary) {
-        managerSalary = monthSalary;
+    public void setMonthSalary() {
+        managerSalary = (long) (Math.random()*(60000-35000)+35000);
     }
 
     @Override
-    public int getMonthSalary() {
-        return 0;
+    public long getMonthSalary() {
+        return managerSalary;
     }
 }
