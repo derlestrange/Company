@@ -7,16 +7,24 @@ public class Company {
 
     private List<Employee> companyList = new ArrayList<>();
     private long companyIncome;
-    //Company company;
+    Manager manager = new Manager();
 
-    public Company() {
-    }
+    public Company() { }
 
     public void hire(Employee employee) {
-        companyList.add(employee);
         employee.setCompany(new Company());
         employee.setMonthSalary();
         setCompanyIncome(employee.getMonthSalary() + getCompanyIncome());
+        companyList.add(employee);
+    }
+
+    public void hireAll(List<Employee> listName){
+        for (int i = 0; i < listName.size(); i++) {
+            manager.setMonthSalary();
+            setCompanyIncome(manager.getMonthSalary() + getCompanyIncome());
+            System.out.println("зп, когда наняли : " + manager.getMonthSalary());
+        }
+        companyList.addAll(listName);
     }
 
     public long getCompanyIncome() {
