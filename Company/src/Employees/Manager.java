@@ -1,56 +1,45 @@
 package Employees;
 
 public class Manager implements Employee {
-
-    private String managerName;
-    private int managerId;
-    private long managerSalary;
+    private double managerIncome;
     private Company managerCompany;
-    private Manager manager;
+    private final double FIXED_POINT = 30000;
 
-    public Manager(Company company, String name, int id) {
-        this.managerName = name;
-        this.managerId = id;
+    public Manager(Company company) {
         this.managerCompany = company;
+        setEmployeeIncome();
     }
-
-    public Manager(Company company){
-        this.managerCompany = company;
-    }
-
-//    public Manager(Company company, long managerSalary) {
-//        this.managerCompany = company;
-//        this.managerSalary = managerSalary;
-//    }
 
     public Manager() {
-
+        setEmployeeIncome();
     }
 
-    //    @Override
-//    public String toString() {
-//        return "Manager:\n" + "Id менеджера  = " + managerId +
-//                "\nИмя менеджера = " + managerName +
-//                "\nЗарплата менеджера = " + managerSalary +
-//                "\nКомпания менеджера: " + managerCompany.toString();
-//    }
     @Override
     public String toString() {
-        return "ЗП манагера:" + managerSalary;
+        return "Manager{" +
+                "managerSalary = " + managerIncome +
+                ", company = " + managerCompany.toString() +
+                '}';
+    }
+
+    @Override
+    public double getMonthSalary() {
+        return FIXED_POINT + (getEmployeeIncome() * 0.05);
+    }
+
+    @Override
+    public double getEmployeeIncome() {
+        return managerIncome;
+    }
+
+
+    @Override
+    public void setEmployeeIncome() {
+        managerIncome = Math.random() * (25000) + 35000;
     }
 
     @Override
     public void setCompany(Company company) {
-        managerCompany = company;
-    }
-
-    @Override
-    public void setMonthSalary() {
-        managerSalary = (long) (Math.random() * (60000 - 35000) + 35000);
-    }
-
-    @Override
-    public long getMonthSalary() {
-        return managerSalary;
+        this.managerCompany = company;
     }
 }

@@ -4,46 +4,39 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
-
-    private List<Employee> companyList = new ArrayList<>();
-    private long companyIncome;
-    Manager manager = new Manager();
-
-    public Company() { }
+    List<Employee> companyList = new ArrayList<>();
+    long companyIncome;
 
     public void hire(Employee employee) {
-        employee.setCompany(new Company());
-        employee.setMonthSalary();
-        setCompanyIncome(employee.getMonthSalary() + getCompanyIncome());
+        employee.setEmployeeIncome();
+        employee.setCompany(this);
+        setCompanyIncome((long) (getCompanyIncome() + employee.getEmployeeIncome()));
         companyList.add(employee);
     }
 
-    public void hireAll(List<Employee> listName){
-        for (int i = 0; i < listName.size(); i++) {
-            manager.setMonthSalary();
-            setCompanyIncome(manager.getMonthSalary() + getCompanyIncome());
-            System.out.println("зп, когда наняли : " + manager.getMonthSalary());
-        }
-        companyList.addAll(listName);
+    public void hireAll(List<Employee> list) {
+        companyList.addAll(list);
     }
 
-    public long getCompanyIncome() {
-//        System.out.print("Доход компании: " + companyIncome);
-        return companyIncome;
+    public void fire() {
+        int firedEmployee = (int) (Math.random() * (companyList.size()));
+        System.out.println("ЗП уволенного: " + companyList.get(firedEmployee).getEmployeeIncome());
+        setCompanyIncome((long) (getCompanyIncome() - companyList.get(firedEmployee).getEmployeeIncome()));
+        companyList.remove(firedEmployee);
     }
 
     public void setCompanyIncome(long companyIncome) {
         this.companyIncome = companyIncome;
     }
 
+    public long getCompanyIncome() {
+        return companyIncome;
+    }
+
     public void printCompanyList() {
         for (Employee employee : companyList) {
             System.out.println(employee);
         }
+        System.out.println("число сотрудников: " + companyList.size());
     }
-
-//    @Override
-//    public String toString() {
-//        return "Компания: " + company;
-//    }
 }

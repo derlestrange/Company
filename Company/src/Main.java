@@ -5,32 +5,37 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Employee> companyWithMoreEmployees = new ArrayList<>();
-        Company companyOne = new Company();
-        Manager manager = new Manager();
-        Operator operator = new Operator();
-        TopManager topManager = new TopManager();
-
-        for (int i = 0; i < 100; i++) {
-            companyWithMoreEmployees.add(manager);
+        Company google = new Company();
+        Employee manager = new Manager();
+        List<Employee> notHiredEmployees = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            notHiredEmployees.add(new Manager(google));
         }
 
-        companyOne.setCompanyIncome(0);
-        companyOne.hire(new Manager(companyOne, "Vasya", 2));
-        companyOne.hire(new Manager(companyOne, "max", 3));
-        companyOne.hireAll(companyWithMoreEmployees);
-        System.out.println("Бабки компании: " + companyOne.getCompanyIncome());
-        companyOne.printCompanyList();
+//        for (Employee s : notHiredEmployees){
+//            System.out.println(s);
+//        }
 
+        google.hire(new Manager());
+        google.hire(new Manager());
+        google.hire(new Manager());
+        google.hire(new Manager());
 
-        System.out.println("++++++++++++++++++++++++++++++");
-        Company company = new Company();
-        company.hire(new Manager(company, "lora", 1));
-        System.out.println("Бабки второй компании:" + company.getCompanyIncome());
+        System.out.println("Доход компании: " + google.getCompanyIncome());
+        google.printCompanyList();
+        google.fire();
+        google.printCompanyList();
+        System.out.println("Доход компании: " + google.getCompanyIncome());
+        google.hireAll(notHiredEmployees);
+        google.printCompanyList();
+        System.out.println("Доход компании: " + google.getCompanyIncome());
+        google.fire();
 
+        System.out.println();
         Company company1 = new Company();
-        company1.hireAll(companyWithMoreEmployees);
-        System.out.println("бабки третьей компании" + company1.getCompanyIncome());
-
+        company1.hire(new Manager());
+        company1.printCompanyList();
+        System.out.println("Доход компании 1: " + company1.getCompanyIncome());
+        System.out.println("Тестовая хрень: " + manager.getMonthSalary());
     }
 }
