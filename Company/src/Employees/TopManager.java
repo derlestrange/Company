@@ -12,23 +12,22 @@ public class TopManager implements Employee {
     }
 
     public TopManager() {
-
         setEmployeeIncome();
     }
 
     @Override
     public String toString() {
-        return "TopManager{" +
-                "TopManagerSalary = " + topManagerIncome + '}';
+        return "Топ Менеджер: Зарплата " + getMonthSalary() + ",";
     }
 
     @Override
     public double getMonthSalary() {
-        if (getCompany().getCompanyIncome() > 10000000) {
+        if (topManagerCompany.getCompanyIncome() > 10000000) {
             return FIXED_POINT + (getEmployeeIncome() * 1.5);
         } else {
             return FIXED_POINT;
         }
+        //return FIXED_POINT;
     }
 
     @Override

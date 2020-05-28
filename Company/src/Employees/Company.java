@@ -1,7 +1,6 @@
 package Employees;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Company {
 
@@ -9,18 +8,27 @@ public class Company {
     long companyIncome;
     private String nameCompany;
 
-    public Company(String nameCompany){
+    public Company(String nameCompany) {
         this.nameCompany = nameCompany;
     }
 
-    List<Employee> getTopSalaryStaff(int count) {
-        return null;
+    public void getTopSalaryStaff(int count) {
+        companyList.sort((o1, o2) -> Double.compare(o2.getMonthSalary(), o1.getMonthSalary()));
+        System.out.println("Список самых высоких зарплат: ");
+        for (int i = 0; i < count; i++) {
+            System.out.println("№" + i + " " +companyList.get(i) +
+                    " Работает в компании: " + nameCompany);
+        }
     }
 
-    List<Employee> getLowestSalaryStaff(int count) {
-        return null;
+    public void getLowestSalaryStaff(int count) {
+        companyList.sort(Comparator.comparingDouble(Employee::getMonthSalary));
+        System.out.println("Список самых низких зарплат: ");
+        for (int i = 0; i < count; i++) {
+            System.out.println("№" + i + " " + companyList.get(i) +
+                    " Работает в компании: " + nameCompany);
+        }
     }
-
 
     public void hire(Employee employee) {
         employee.setEmployeeIncome();
@@ -33,6 +41,7 @@ public class Company {
         long income = 0;
         for (Employee employee : list) {
             employee.setEmployeeIncome();
+            employee.setCompany(this);
             income += employee.getEmployeeIncome();
         }
         setCompanyIncome(income + getCompanyIncome());
@@ -60,4 +69,5 @@ public class Company {
         }
         System.out.println("число сотрудников: " + companyList.size());
     }
+
 }

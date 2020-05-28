@@ -2,7 +2,6 @@ package Employees;
 
 public class Operator implements Employee {
 
-    private double operatorIncome;
     private Company operatorCompany;
     private final double FIXED_POINT = 25000;
 
@@ -17,8 +16,7 @@ public class Operator implements Employee {
 
     @Override
     public String toString() {
-        return "Manager{" +
-                "managerSalary = " + operatorIncome + '}';
+        return "Оператор: Зарплата " + getMonthSalary() + ",";
     }
 
     @Override
@@ -28,7 +26,7 @@ public class Operator implements Employee {
 
     @Override
     public double getEmployeeIncome() {
-        return operatorIncome;
+        return 0;
     }
 
     @Override

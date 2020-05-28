@@ -4,7 +4,7 @@ public class Manager implements Employee {
 
     private double managerIncome;
     private Company managerCompany;
-    private final double FIXED_POINT = 30000;
+    private final double FIXED_POINT = 60000;
 
     public Manager(Company company) {
         this.managerCompany = company;
@@ -17,10 +17,9 @@ public class Manager implements Employee {
 
     @Override
     public String toString() {
-        return "Manager{" +
-                "managerSalary = " + managerIncome + '}';
+        return "Менеджер: Зарплата " + getMonthSalary() + ",";
     }
-
+//"managerIncome = " + managerIncome +
 
     @Override
     public double getMonthSalary() {
