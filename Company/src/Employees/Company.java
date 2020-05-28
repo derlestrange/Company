@@ -4,8 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Company {
+
     List<Employee> companyList = new ArrayList<>();
     long companyIncome;
+    private String nameCompany;
+
+    public Company(String nameCompany){
+        this.nameCompany = nameCompany;
+    }
+
+    List<Employee> getTopSalaryStaff(int count) {
+        return null;
+    }
+
+    List<Employee> getLowestSalaryStaff(int count) {
+        return null;
+    }
+
 
     public void hire(Employee employee) {
         employee.setEmployeeIncome();
@@ -15,6 +30,12 @@ public class Company {
     }
 
     public void hireAll(List<Employee> list) {
+        long income = 0;
+        for (Employee employee : list) {
+            employee.setEmployeeIncome();
+            income += employee.getEmployeeIncome();
+        }
+        setCompanyIncome(income + getCompanyIncome());
         companyList.addAll(list);
     }
 
@@ -35,7 +56,7 @@ public class Company {
 
     public void printCompanyList() {
         for (Employee employee : companyList) {
-            System.out.println(employee);
+            System.out.println(employee + "Работает в компании: " + nameCompany);
         }
         System.out.println("число сотрудников: " + companyList.size());
     }

@@ -1,6 +1,7 @@
 package Employees;
 
 public class Manager implements Employee {
+
     private double managerIncome;
     private Company managerCompany;
     private final double FIXED_POINT = 30000;
@@ -17,10 +18,9 @@ public class Manager implements Employee {
     @Override
     public String toString() {
         return "Manager{" +
-                "managerSalary = " + managerIncome +
-                ", company = " + managerCompany.toString() +
-                '}';
+                "managerSalary = " + managerIncome + '}';
     }
+
 
     @Override
     public double getMonthSalary() {
@@ -30,6 +30,12 @@ public class Manager implements Employee {
     @Override
     public double getEmployeeIncome() {
         return managerIncome;
+    }
+
+    @Override
+    public Company getCompany() {
+
+        return null;
     }
 
 
