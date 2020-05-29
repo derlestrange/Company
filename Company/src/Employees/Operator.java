@@ -5,14 +5,7 @@ public class Operator implements Employee {
     private Company operatorCompany;
     private final double FIXED_POINT = 25000;
 
-    public Operator(Company company) {
-        this.operatorCompany = company;
-        setEmployeeIncome();
-    }
-
-    public Operator() {
-        setEmployeeIncome();
-    }
+    public Operator() { }
 
     @Override
     public String toString() {
@@ -25,22 +18,17 @@ public class Operator implements Employee {
     }
 
     @Override
+    public void setCompany(Company company) {
+        this.operatorCompany = company;
+    }
+
+    @Override
     public double getEmployeeIncome() {
         return 0;
     }
 
     @Override
-    public Company getCompany() {
-        return operatorCompany;
-    }
-
-    @Override
     public void setEmployeeIncome() {
 
-    }
-
-    @Override
-    public void setCompany(Company company) {
-        this.operatorCompany = company;
     }
 }

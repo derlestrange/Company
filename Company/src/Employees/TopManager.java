@@ -6,11 +6,6 @@ public class TopManager implements Employee {
     private Company topManagerCompany;
     private final double FIXED_POINT = 50000;
 
-    public TopManager(Company company) {
-        this.topManagerCompany = company;
-        setEmployeeIncome();
-    }
-
     public TopManager() {
         setEmployeeIncome();
     }
@@ -27,7 +22,6 @@ public class TopManager implements Employee {
         } else {
             return FIXED_POINT;
         }
-        //return FIXED_POINT;
     }
 
     @Override
@@ -35,11 +29,7 @@ public class TopManager implements Employee {
         return topManagerIncome;
     }
 
-    @Override
-    public Company getCompany() {
-        return topManagerCompany;
-    }
-
+    //назначаем рандомный доход для компании, из которого высчитывается ЗП
     @Override
     public void setEmployeeIncome() {
         topManagerIncome = Math.random() * (50000) + 100000;

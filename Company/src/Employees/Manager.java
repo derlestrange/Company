@@ -6,11 +6,6 @@ public class Manager implements Employee {
     private Company managerCompany;
     private final double FIXED_POINT = 60000;
 
-    public Manager(Company company) {
-        this.managerCompany = company;
-        setEmployeeIncome();
-    }
-
     public Manager() {
         setEmployeeIncome();
     }
@@ -19,7 +14,6 @@ public class Manager implements Employee {
     public String toString() {
         return "Менеджер: Зарплата " + getMonthSalary() + ",";
     }
-//"managerIncome = " + managerIncome +
 
     @Override
     public double getMonthSalary() {
@@ -31,13 +25,7 @@ public class Manager implements Employee {
         return managerIncome;
     }
 
-    @Override
-    public Company getCompany() {
-
-        return null;
-    }
-
-
+    //назначаем рандомный доход для компании, из которого высчитывается ЗП
     @Override
     public void setEmployeeIncome() {
         managerIncome = Math.random() * (25000) + 35000;

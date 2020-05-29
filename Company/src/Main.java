@@ -8,18 +8,14 @@ public class Main {
 
         Company google = new Company("Google");
 
-        Employee manager = new Manager();
-        Employee topManager = new TopManager();
-        Employee operator = new Operator();
-
         List<Employee> notHiredEmployees = new ArrayList<>();
-        for (int i = 0; i < 180; i++) {
+        for (int i = 0; i <= 180; i++) {
             notHiredEmployees.add(new Operator());
         }
-        for (int i = 0; i < 80; i++) {
+        for (int i = 0; i <= 80; i++) {
             notHiredEmployees.add(new Manager());
         }
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i <= 10; i++) {
             notHiredEmployees.add(new TopManager());
         }
 
@@ -27,8 +23,12 @@ public class Main {
         google.hireAll(notHiredEmployees);
         google.getTopSalaryStaff(15);
         google.getLowestSalaryStaff(30);
-
-
-
+        System.out.println("Доходы компании перед увольнением 50% сотрудников: " + google.getCompanyIncome());
+        google.printCompanyList();
+        google.fireHalf();
+        System.out.println("Доходы компании после увольнения 50% сотрудников: " + google.getCompanyIncome());
+        google.printCompanyList();
+        google.getTopSalaryStaff(15);
+        google.getLowestSalaryStaff(30);
     }
 }
