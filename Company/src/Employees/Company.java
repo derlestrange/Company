@@ -4,8 +4,8 @@ import java.util.*;
 
 public class Company {
 
-    List<Employee> companyList = new ArrayList<>();
-    long companyIncome;
+    private List<Employee> companyList = new ArrayList<>();
+    private long companyIncome;
     private String nameCompany;
 
     public Company(String nameCompany) {
